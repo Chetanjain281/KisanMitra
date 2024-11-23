@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDc6guy-PUN6aSim8lpSqLIU6YWqoAXHNc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>248506852741</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mycompany.kisanmitra</string>
+	<key>PROJECT_ID</key>
+	<string>kisan-mitra-a3bc4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kisan-mitra-a3bc4.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:248506852741:ios:94cd462b32f9d9d3cd90ec</string>
+	<key>DATABASE_URL</key>
+	<string>https://kisan-mitra-a3bc4-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
