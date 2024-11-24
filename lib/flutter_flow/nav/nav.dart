@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
+import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -71,13 +72,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomePageWidget() : const Auth1Widget(),
+          appStateNotifier.loggedIn ? const NavBarPage() : const Auth1Widget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomePageWidget() : const Auth1Widget(),
+              appStateNotifier.loggedIn ? const NavBarPage() : const Auth1Widget(),
         ),
         FFRoute(
           name: 'Auth1',
@@ -87,37 +88,59 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
-          builder: (context, params) => const HomePageWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'HomePage')
+              : const HomePageWidget(),
         ),
         FFRoute(
           name: 'FertilizeSelect',
           path: '/fertilizeSelect',
-          builder: (context, params) => FertilizeSelectWidget(
-            nitrogenValue: params.getParam(
-              'nitrogenValue',
-              ParamType.String,
-            ),
-          ),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'FertilizeSelect')
+              : NavBarPage(
+                  initialPage: 'FertilizeSelect',
+                  page: FertilizeSelectWidget(
+                    nitrogenValue: params.getParam(
+                      'nitrogenValue',
+                      ParamType.String,
+                    ),
+                  ),
+                ),
         ),
         FFRoute(
           name: 'PesticidePage',
           path: '/pesticidePage',
-          builder: (context, params) => PesticidePageWidget(
-            nitrogenValue: params.getParam(
-              'nitrogenValue',
-              ParamType.String,
-            ),
-          ),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'PesticidePage')
+              : NavBarPage(
+                  initialPage: 'PesticidePage',
+                  page: PesticidePageWidget(
+                    nitrogenValue: params.getParam(
+                      'nitrogenValue',
+                      ParamType.String,
+                    ),
+                  ),
+                ),
         ),
         FFRoute(
           name: 'WeedicidePage',
           path: '/weedicidePage',
-          builder: (context, params) => WeedicidePageWidget(
-            nitrogenValue: params.getParam(
-              'nitrogenValue',
-              ParamType.String,
-            ),
-          ),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'WeedicidePage')
+              : NavBarPage(
+                  initialPage: 'WeedicidePage',
+                  page: WeedicidePageWidget(
+                    nitrogenValue: params.getParam(
+                      'nitrogenValue',
+                      ParamType.String,
+                    ),
+                  ),
+                ),
+        ),
+        FFRoute(
+          name: 'NewsPage',
+          path: '/newsPage',
+          builder: (context, params) => const NewsPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -302,13 +325,15 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Container(
-                  color: Colors.transparent,
-                  child: Image.asset(
-                    'assets/images/KisanMitra.png',
-                    fit: BoxFit.cover,
-                  ),
-                )
+              ? isWeb
+                  ? Container()
+                  : Container(
+                      color: Colors.transparent,
+                      child: Image.asset(
+                        'assets/images/KisanMitra.png',
+                        fit: BoxFit.cover,
+                      ),
+                    )
               : page;
 
           final transitionInfo = state.transitionInfo;

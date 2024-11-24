@@ -1,11 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -109,6 +109,8 @@ class _Auth1WidgetState extends State<Auth1Widget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -162,28 +164,68 @@ class _Auth1WidgetState extends State<Auth1Widget>
                               ),
                             ),
                             alignment: const AlignmentDirectional(-1.0, 0.0),
-                            child: Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
-                              child: Column(
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 0.0),
+                              child: Row(
                                 mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'KisanMitra',
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: const Color(0xFF101213),
-                                            fontSize: 36.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
+                                  Align(
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              '1l102jch' /* KisanMitra */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: const Color(0xFF101213),
+                                                  fontSize: 36.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                           ),
+                                        ),
+                                      ],
                                     ),
+                                  ),
+                                  FlutterFlowLanguageSelector(
+                                    width: 109.0,
+                                    height: 40.0,
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    borderColor: Colors.transparent,
+                                    dropdownIconColor: Colors.white,
+                                    borderRadius: 8.0,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    hideFlags: true,
+                                    flagSize: 24.0,
+                                    flagTextGap: 8.0,
+                                    currentLanguage: FFLocalizations.of(context)
+                                        .languageCode,
+                                    languages: FFLocalizations.languages(),
+                                    onChanged: (lang) =>
+                                        setAppLanguage(context, lang),
                                   ),
                                 ],
                               ),
@@ -235,12 +277,18 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                     indicatorWeight: 4.0,
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 16.0, 12.0),
-                                    tabs: const [
+                                    tabs: [
                                       Tab(
-                                        text: 'Sign In',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'hjskdypw' /* Sign In */,
+                                        ),
                                       ),
                                       Tab(
-                                        text: 'Sign Up',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'gymow3g7' /* Sign Up */,
+                                        ),
                                       ),
                                     ],
                                     controller: _model.tabBarController,
@@ -270,7 +318,10 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                     .fromSTEB(
                                                         0.0, 12.0, 0.0, 24.0),
                                                 child: Text(
-                                                  'Let\'s get started by filling out the form below.',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    't4s3v918' /* Let's get started by filling o... */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelMedium
@@ -303,7 +354,12 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                     ],
                                                     obscureText: false,
                                                     decoration: InputDecoration(
-                                                      labelText: 'Email',
+                                                      labelText:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        '4z3qbab3' /* Email */,
+                                                      ),
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -410,7 +466,12 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                     obscureText: !_model
                                                         .passwordVisibility,
                                                     decoration: InputDecoration(
-                                                      labelText: 'Password',
+                                                      labelText:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        '39a4em9c' /* Password */,
+                                                      ),
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -550,7 +611,11 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                           'HomePage',
                                                           context.mounted);
                                                     },
-                                                    text: 'Sign In',
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'xlrsz4oz' /* Sign In */,
+                                                    ),
                                                     options: FFButtonOptions(
                                                       width: 230.0,
                                                       height: 52.0,
@@ -613,7 +678,11 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                       print(
                                                           'Button pressed ...');
                                                     },
-                                                    text: 'Forgot Password',
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'bkd9jccn' /* Forgot Password */,
+                                                    ),
                                                     options: FFButtonOptions(
                                                       width: 230.0,
                                                       height: 44.0,
@@ -676,7 +745,11 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                   16.0,
                                                                   24.0),
                                                       child: Text(
-                                                        'Or sign up with',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '9ur31ruq' /* Or sign up with */,
+                                                        ),
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: FlutterFlowTheme
@@ -756,8 +829,11 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                     context
                                                                         .mounted);
                                                               },
-                                                              text:
-                                                                  'Continue with Google',
+                                                              text: FFLocalizations
+                                                                      .of(context)
+                                                                  .getText(
+                                                                'iksj7qfe' /* Continue with Google */,
+                                                              ),
                                                               icon: const FaIcon(
                                                                 FontAwesomeIcons
                                                                     .google,
@@ -843,7 +919,10 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                     .fromSTEB(
                                                         0.0, 12.0, 0.0, 24.0),
                                                 child: Text(
-                                                  'Let\'s get started by filling out the form below.',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'tsc4e0y3' /* Let's get started by filling o... */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelMedium
@@ -876,7 +955,12 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                     ],
                                                     obscureText: false,
                                                     decoration: InputDecoration(
-                                                      labelText: 'Name',
+                                                      labelText:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        'cgnxdz4u' /* Name */,
+                                                      ),
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -980,7 +1064,12 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                     ],
                                                     obscureText: false,
                                                     decoration: InputDecoration(
-                                                      labelText: 'Email',
+                                                      labelText:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        'x9hexnyf' /* Email */,
+                                                      ),
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1087,7 +1176,12 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                     obscureText: !_model
                                                         .passwordCreateVisibility,
                                                     decoration: InputDecoration(
-                                                      labelText: 'Password',
+                                                      labelText:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        '41qwcbeg' /* Password */,
+                                                      ),
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1215,7 +1309,11 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                         .passwordConfirmVisibility,
                                                     decoration: InputDecoration(
                                                       labelText:
-                                                          'Confirm Password',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        'zaxpp5b9' /* Confirm Password */,
+                                                      ),
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1393,7 +1491,11 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                           'HomePage',
                                                           context.mounted);
                                                     },
-                                                    text: 'Create Account',
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'vh2jn957' /* Create Account */,
+                                                    ),
                                                     options: FFButtonOptions(
                                                       width: 230.0,
                                                       height: 52.0,
@@ -1460,7 +1562,11 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                   16.0,
                                                                   24.0),
                                                       child: Text(
-                                                        'Or sign up with',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '6abh5r70' /* Or sign up with */,
+                                                        ),
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: FlutterFlowTheme
@@ -1540,8 +1646,11 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                     context
                                                                         .mounted);
                                                               },
-                                                              text:
-                                                                  'Continue with Google',
+                                                              text: FFLocalizations
+                                                                      .of(context)
+                                                                  .getText(
+                                                                'w84gtyjc' /* Continue with Google */,
+                                                              ),
                                                               icon: const FaIcon(
                                                                 FontAwesomeIcons
                                                                     .google,
@@ -1622,28 +1731,6 @@ class _Auth1WidgetState extends State<Auth1Widget>
                   ),
                 ),
               ),
-              if (responsiveVisibility(
-                context: context,
-                phone: false,
-                tablet: false,
-              ))
-                Expanded(
-                  flex: 6,
-                  child: Container(
-                    width: 100.0,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      image: const DecorationImage(
-                        fit: BoxFit.cover,
-                        image: CachedNetworkImageProvider(
-                          'https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80',
-                        ),
-                      ),
-                      borderRadius: BorderRadius.circular(0.0),
-                    ),
-                  ),
-                ),
             ],
           ),
         ),

@@ -9,7 +9,7 @@ class WeedicidePageModel extends FlutterFlowModel<WeedicidePageWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // Stores action output result for [Custom Action - getWeedRec1] action in Button widget.
+  // Stores action output result for [Custom Action - getWeedRec1] action in TextField widget.
   List<double>? weedReq;
 
   @override

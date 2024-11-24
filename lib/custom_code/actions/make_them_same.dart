@@ -8,11 +8,12 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future<List<double>> getWeedRec1(double area) async {
-  double weed_req = 20 * area;
-  List<double> recommendation_weeds = [0.0, 0.0, 0.0, 0.0, 0.0, weed_req, area];
+Future makeThemSame(List<double> Answer1, List<double> Answer2,
+    List<double> Answer3, List<double> AnswerOg) async {
+  // write a code that will take arguments Answer1,Answer2,Answer3,Answer and make Answer1,Amswer2,Answer3=Answer
 
-  return recommendation_weeds;
+  // Assigning the values of Answer1, Answer2, Answer3 to Answer
+  Answer1 = AnswerOg;
+  Answer2 = AnswerOg;
+  Answer3 = AnswerOg;
 }
-// Set your action name, define your arguments and return parameter,
-// and then add the boilerplate code using the green button on the right!

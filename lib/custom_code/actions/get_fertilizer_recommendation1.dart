@@ -25,101 +25,101 @@ Future<List<double>> getFertilizerRecommendation1(
           30.0,
           10.0,
           10.0,
-          1.0,
+          10.0,
           pesticide,
           weedicide,
           area
         ]; // N, P, K, Micronutrients, Pesticide, Weedicide, Area
       } else if (symptom == 'Stunted growth') {
-        recommendation = [40.0, 20.0, 20.0, 1.5, pesticide, weedicide, area];
+        recommendation = [40.0, 20.0, 20.0, 15.0, pesticide, weedicide, area];
       } else if (symptom == 'Weak fruit/flowering') {
-        recommendation = [20.0, 40.0, 20.0, 1.2, pesticide, weedicide, area];
+        recommendation = [20.0, 40.0, 20.0, 12.0, pesticide, weedicide, area];
       } else {
-        recommendation = [25.0, 15.0, 10.0, 1.0, pesticide, weedicide, area];
+        recommendation = [25.0, 15.0, 10.0, 10.0, pesticide, weedicide, area];
       }
     } else if (stage == 'Vegetation') {
       if (symptom == 'Yellow leaves') {
-        recommendation = [30.0, 20.0, 20.0, 1.2, pesticide, weedicide, area];
+        recommendation = [30.0, 20.0, 20.0, 12.0, pesticide, weedicide, area];
       } else if (symptom == 'Stunted growth') {
-        recommendation = [50.0, 30.0, 30.0, 1.8, pesticide, weedicide, area];
+        recommendation = [50.0, 30.0, 30.0, 18.0, pesticide, weedicide, area];
       } else if (symptom == 'Weak fruit/flowering') {
-        recommendation = [20.0, 50.0, 30.0, 1.5, pesticide, weedicide, area];
+        recommendation = [20.0, 50.0, 30.0, 15.0, pesticide, weedicide, area];
       } else {
-        recommendation = [40.0, 30.0, 20.0, 1.5, pesticide, weedicide, area];
+        recommendation = [40.0, 30.0, 20.0, 15.0, pesticide, weedicide, area];
       }
     } else if (stage == 'Flowering/Fruiting') {
       if (symptom == 'Yellow leaves') {
-        recommendation = [20.0, 30.0, 40.0, 1.5, pesticide, weedicide, area];
+        recommendation = [20.0, 30.0, 40.0, 15.0, pesticide, weedicide, area];
       } else if (symptom == 'Stunted growth') {
-        recommendation = [30.0, 40.0, 30.0, 2.0, pesticide, weedicide, area];
+        recommendation = [30.0, 40.0, 30.0, 20.0, pesticide, weedicide, area];
       } else if (symptom == 'Weak fruit/flowering') {
-        recommendation = [10.0, 40.0, 50.0, 2.0, pesticide, weedicide, area];
+        recommendation = [10.0, 40.0, 50.0, 20.0, pesticide, weedicide, area];
       } else {
-        recommendation = [15.0, 40.0, 45.0, 1.5, pesticide, weedicide, area];
+        recommendation = [15.0, 40.0, 45.0, 15.0, pesticide, weedicide, area];
       }
     }
   } else if (cropType == 'Fruit') {
     if (stage == 'Seedling') {
       if (symptom == 'Yellow leaves') {
-        recommendation = [30.0, 10.0, 10.0, 1.0, pesticide, weedicide, area];
+        recommendation = [30.0, 10.0, 10.0, 10.0, pesticide, weedicide, area];
       } else if (symptom == 'Stunted growth') {
-        recommendation = [40.0, 20.0, 20.0, 1.5, pesticide, weedicide, area];
+        recommendation = [40.0, 20.0, 20.0, 15.0, pesticide, weedicide, area];
       } else if (symptom == 'Weak fruit/flowering') {
-        recommendation = [20.0, 40.0, 20.0, 1.2, pesticide, weedicide, area];
+        recommendation = [20.0, 40.0, 20.0, 12.0, pesticide, weedicide, area];
       } else {
-        recommendation = [25.0, 15.0, 10.0, 1.0, pesticide, weedicide, area];
+        recommendation = [25.0, 15.0, 10.0, 10.0, pesticide, weedicide, area];
       }
     } else if (stage == 'Vegetation') {
       if (symptom == 'Yellow leaves') {
-        recommendation = [30.0, 20.0, 20.0, 1.2, pesticide, weedicide, area];
+        recommendation = [30.0, 20.0, 20.0, 12.0, pesticide, weedicide, area];
       } else if (symptom == 'Stunted growth') {
-        recommendation = [50.0, 30.0, 30.0, 1.8, pesticide, weedicide, area];
+        recommendation = [50.0, 30.0, 30.0, 18.0, pesticide, weedicide, area];
       } else if (symptom == 'Weak fruit/flowering') {
-        recommendation = [20.0, 50.0, 30.0, 1.5, pesticide, weedicide, area];
+        recommendation = [20.0, 50.0, 30.0, 15.0, pesticide, weedicide, area];
       } else {
-        recommendation = [40.0, 30.0, 20.0, 1.5, pesticide, weedicide, area];
+        recommendation = [40.0, 30.0, 20.0, 15.0, pesticide, weedicide, area];
       }
     } else if (stage == 'Flowering/Fruiting') {
       if (symptom == 'Yellow leaves') {
-        recommendation = [20.0, 30.0, 40.0, 1.5, pesticide, weedicide, area];
+        recommendation = [20.0, 30.0, 40.0, 15.0, pesticide, weedicide, area];
       } else if (symptom == 'Stunted growth') {
-        recommendation = [30.0, 40.0, 30.0, 2.0, pesticide, weedicide, area];
+        recommendation = [30.0, 40.0, 30.0, 20.0, pesticide, weedicide, area];
       } else if (symptom == 'Weak fruit/flowering') {
-        recommendation = [10.0, 40.0, 50.0, 2.0, pesticide, weedicide, area];
+        recommendation = [10.0, 40.0, 50.0, 20.0, pesticide, weedicide, area];
       } else {
-        recommendation = [15.0, 40.0, 45.0, 1.5, pesticide, weedicide, area];
+        recommendation = [15.0, 40.0, 45.0, 15.0, pesticide, weedicide, area];
       }
     }
   } else if (cropType == 'Flower') {
     if (stage == 'Seedling') {
       if (symptom == 'Yellow leaves') {
-        recommendation = [30.0, 10.0, 10.0, 1.0, pesticide, weedicide, area];
+        recommendation = [30.0, 10.0, 10.0, 10.0, pesticide, weedicide, area];
       } else if (symptom == 'Stunted growth') {
-        recommendation = [40.0, 20.0, 20.0, 1.5, pesticide, weedicide, area];
+        recommendation = [40.0, 20.0, 20.0, 15.0, pesticide, weedicide, area];
       } else if (symptom == 'Weak fruit/flowering') {
-        recommendation = [20.0, 40.0, 20.0, 1.2, pesticide, weedicide, area];
+        recommendation = [20.0, 40.0, 20.0, 12.0, pesticide, weedicide, area];
       } else {
-        recommendation = [25.0, 15.0, 10.0, 1.0, pesticide, weedicide, area];
+        recommendation = [25.0, 15.0, 10.0, 10.0, pesticide, weedicide, area];
       }
     } else if (stage == 'Vegetation') {
       if (symptom == 'Yellow leaves') {
-        recommendation = [30.0, 20.0, 20.0, 1.2, pesticide, weedicide, area];
+        recommendation = [30.0, 20.0, 20.0, 12.0, pesticide, weedicide, area];
       } else if (symptom == 'Stunted growth') {
-        recommendation = [50.0, 30.0, 30.0, 1.8, pesticide, weedicide, area];
+        recommendation = [50.0, 30.0, 30.0, 18.0, pesticide, weedicide, area];
       } else if (symptom == 'Weak fruit/flowering') {
-        recommendation = [20.0, 50.0, 30.0, 1.5, pesticide, weedicide, area];
+        recommendation = [20.0, 50.0, 30.0, 15.0, pesticide, weedicide, area];
       } else {
-        recommendation = [40.0, 30.0, 20.0, 1.5, pesticide, weedicide, area];
+        recommendation = [40.0, 30.0, 20.0, 15.0, pesticide, weedicide, area];
       }
     } else if (stage == 'Flowering/Fruiting') {
       if (symptom == 'Yellow leaves') {
-        recommendation = [20.0, 30.0, 40.0, 1.5, pesticide, weedicide, area];
+        recommendation = [20.0, 30.0, 40.0, 15.0, pesticide, weedicide, area];
       } else if (symptom == 'Stunted growth') {
-        recommendation = [30.0, 40.0, 30.0, 2.0, pesticide, weedicide, area];
+        recommendation = [30.0, 40.0, 30.0, 20.0, pesticide, weedicide, area];
       } else if (symptom == 'Weak fruit/flowering') {
-        recommendation = [10.0, 40.0, 50.0, 2.0, pesticide, weedicide, area];
+        recommendation = [10.0, 40.0, 50.0, 20.0, pesticide, weedicide, area];
       } else {
-        recommendation = [15.0, 40.0, 45.0, 1.5, pesticide, weedicide, area];
+        recommendation = [15.0, 40.0, 45.0, 15.0, pesticide, weedicide, area];
       }
     }
   }

@@ -9,7 +9,7 @@ class PesticidePageModel extends FlutterFlowModel<PesticidePageWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // Stores action output result for [Custom Action - getPestRec1] action in Button widget.
+  // Stores action output result for [Custom Action - getPestRec1] action in TextField widget.
   List<double>? answer;
 
   @override

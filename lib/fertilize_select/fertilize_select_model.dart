@@ -28,7 +28,7 @@ class FertilizeSelectModel extends FlutterFlowModel<FertilizeSelectWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // Stores action output result for [Custom Action - getFertilizerRecommendation1] action in Button widget.
+  // Stores action output result for [Custom Action - getFertilizerRecommendation1] action in TextField widget.
   List<double>? answer;
 
   @override

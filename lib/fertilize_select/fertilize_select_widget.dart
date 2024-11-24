@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -6,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'fertilize_select_model.dart';
 export 'fertilize_select_model.dart';
 
@@ -85,18 +87,43 @@ class FertilizeSelectWidget extends StatefulWidget {
   State<FertilizeSelectWidget> createState() => _FertilizeSelectWidgetState();
 }
 
-class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
+class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget>
+    with TickerProviderStateMixin {
   late FertilizeSelectModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => FertilizeSelectModel());
 
-    _model.textController ??= TextEditingController(text: '1');
+    _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        loop: true,
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 2000.0.ms,
+            duration: 1800.0.ms,
+            color: const Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+    });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
+          _model.textController?.text = FFLocalizations.of(context).getText(
+            '6g1w6pgk' /* 1 */,
+          );
+        }));
   }
 
   @override
@@ -114,31 +141,36 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
-            buttonSize: 48.0,
-            icon: Icon(
-              Icons.arrow_back,
-              color: FlutterFlowTheme.of(context).primaryText,
-              size: 24.0,
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: const Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.white,
+              size: 30.0,
             ),
             onPressed: () async {
-              context.pushNamed('HomePage');
+              context.pop();
             },
           ),
           title: Text(
-            'Fertilizer Calculator',
+            FFLocalizations.of(context).getText(
+              '5qaqwntk' /* Fertilizer Calculator */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
-                  color: FlutterFlowTheme.of(context).primaryText,
+                  color: Colors.white,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
           actions: const [],
           centerTitle: false,
-          elevation: 0.0,
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
@@ -168,52 +200,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'Calculate Fertilizer Needs',
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineSmall
-                                  .override(
-                                    fontFamily: 'Inter Tight',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                            Text(
-                              'Enter crop details for personalized recommendations',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                          ].divide(const SizedBox(height: 16.0)),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Material(
-                    color: Colors.transparent,
-                    elevation: 2.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(16.0),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 20.0, 20.0, 20.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              'Crop Type',
+                              FFLocalizations.of(context).getText(
+                                'sn2pvo3z' /* Crop Type */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
@@ -224,10 +213,16 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                   ),
                             ),
                             FlutterFlowChoiceChips(
-                              options: const [
-                                ChipData('Vegetable'),
-                                ChipData('Fruit'),
-                                ChipData('Flower')
+                              options: [
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'z3i5w3vi' /* Vegetable */,
+                                )),
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'qrgrxhxl' /* Fruit */,
+                                )),
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'io3qwxkj' /* Flower */,
+                                ))
                               ],
                               onChanged: (val) => safeSetState(() =>
                                   _model.choiceChipsValue1 = val?.firstOrNull),
@@ -300,7 +295,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'Growth Stage',
+                              FFLocalizations.of(context).getText(
+                                'pi3edkhl' /* Growth Stage */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
@@ -311,10 +308,16 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                   ),
                             ),
                             FlutterFlowChoiceChips(
-                              options: const [
-                                ChipData('Seedling'),
-                                ChipData('Vegetation'),
-                                ChipData('Flowering/Fruiting')
+                              options: [
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'beh0wjb5' /* Seedling */,
+                                )),
+                                ChipData(FFLocalizations.of(context).getText(
+                                  '2ccwtna2' /* Vegetation */,
+                                )),
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'o3864njn' /* FloweringFruiting */,
+                                ))
                               ],
                               onChanged: (val) => safeSetState(() =>
                                   _model.choiceChipsValue2 = val?.firstOrNull),
@@ -387,7 +390,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'Symptoms',
+                              FFLocalizations.of(context).getText(
+                                'i4bddmld' /* Symptoms */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
@@ -398,11 +403,19 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                   ),
                             ),
                             FlutterFlowChoiceChips(
-                              options: const [
-                                ChipData('Yellow Leaves'),
-                                ChipData('Stunted Growth'),
-                                ChipData('Weak Growth'),
-                                ChipData('No Symptom')
+                              options: [
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'dof700fj' /* Yellow Leaves */,
+                                )),
+                                ChipData(FFLocalizations.of(context).getText(
+                                  '8bbiglj9' /* Stunted Growth */,
+                                )),
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'nsn1io9l' /* Weak Growth */,
+                                )),
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'kraed3z9' /* No Symptom */,
+                                ))
                               ],
                               onChanged: (val) => safeSetState(() =>
                                   _model.choiceChipsValue3 = val?.firstOrNull),
@@ -475,7 +488,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'Area(acres)',
+                              FFLocalizations.of(context).getText(
+                                'zw2t15hi' /* Area(acres) */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
@@ -485,76 +500,80 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                     letterSpacing: 0.0,
                                   ),
                             ),
-                            if (responsiveVisibility(
-                              context: context,
-                              tablet: false,
-                              tabletLandscape: false,
-                              desktop: false,
-                            ))
-                              Expanded(
-                                child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: TextFormField(
-                                    controller: _model.textController,
-                                    focusNode: _model.textFieldFocusNode,
-                                    autofocus: false,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText: 'Enter area in acres',
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
+                            Expanded(
+                              child: Align(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: TextFormField(
+                                  controller: _model.textController,
+                                  focusNode: _model.textFieldFocusNode,
+                                  onFieldSubmitted: (_) async {
+                                    _model.answer = await actions
+                                        .getFertilizerRecommendation1(
+                                      _model.choiceChipsValue1!,
+                                      _model.choiceChipsValue2!,
+                                      _model.choiceChipsValue3!,
+                                      double.parse(_model.textController.text),
+                                    );
+
+                                    safeSetState(() {});
+                                  },
+                                  autofocus: false,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      'gnvysw5e' /* Enter area in acres */,
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
                                           letterSpacing: 0.0,
                                         ),
-                                    textAlign: TextAlign.center,
-                                    minLines: 1,
-                                    keyboardType: TextInputType.number,
-                                    validator: _model.textControllerValidator
-                                        .asValidator(context),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
                                   ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
+                                  textAlign: TextAlign.center,
+                                  minLines: 1,
+                                  keyboardType: TextInputType.number,
+                                  validator: _model.textControllerValidator
+                                      .asValidator(context),
                                 ),
                               ),
+                            ),
                           ].divide(const SizedBox(height: 16.0)),
                         ),
                       ),
@@ -579,7 +598,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'Recommendation',
+                              FFLocalizations.of(context).getText(
+                                '1sbdfabj' /* Recommendation */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
@@ -612,7 +633,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: Text(
-                                            'N',
+                                            FFLocalizations.of(context).getText(
+                                              'mral0hi8' /* N */,
+                                            ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineSmall
@@ -620,7 +643,7 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                                   fontFamily: 'Inter Tight',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primary,
+                                                      .primaryText,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -630,7 +653,7 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                     Text(
                                       valueOrDefault<String>(
                                         _model.answer?.first.toString(),
-                                        '10',
+                                        '0',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
@@ -642,7 +665,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                           ),
                                     ),
                                     Text(
-                                      'Nitrogen',
+                                      FFLocalizations.of(context).getText(
+                                        'utee6pnd' /* Nitrogen */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
@@ -673,7 +698,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: Text(
-                                            'P',
+                                            FFLocalizations.of(context).getText(
+                                              'rpob2kvw' /* P */,
+                                            ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineSmall
@@ -681,7 +708,7 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                                   fontFamily: 'Inter Tight',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primary,
+                                                      .primaryText,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -691,7 +718,7 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                     Text(
                                       valueOrDefault<String>(
                                         (_model.answer?[1])?.toString(),
-                                        '10',
+                                        '0',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
@@ -703,7 +730,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                           ),
                                     ),
                                     Text(
-                                      'Phosphorous',
+                                      FFLocalizations.of(context).getText(
+                                        'uaxgt0h4' /* Phosphorous */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
@@ -734,7 +763,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: Text(
-                                            'K',
+                                            FFLocalizations.of(context).getText(
+                                              'hbcvmo6b' /* K */,
+                                            ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineSmall
@@ -742,7 +773,7 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                                   fontFamily: 'Inter Tight',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primary,
+                                                      .primaryText,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -752,7 +783,7 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                     Text(
                                       valueOrDefault<String>(
                                         (_model.answer?[2])?.toString(),
-                                        '10',
+                                        '0',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
@@ -764,7 +795,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                           ),
                                     ),
                                     Text(
-                                      'Phosphorous',
+                                      FFLocalizations.of(context).getText(
+                                        'grup9hl4' /* Phosphorous */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
@@ -792,14 +825,14 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                       child: Icon(
                                         Icons.add_box,
                                         color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                            .primaryText,
                                         size: 30.0,
                                       ),
                                     ),
                                     Text(
                                       valueOrDefault<String>(
                                         (_model.answer?[3])?.toString(),
-                                        '1',
+                                        '0',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
@@ -811,7 +844,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                           ),
                                     ),
                                     Text(
-                                      'Nutrients',
+                                      FFLocalizations.of(context).getText(
+                                        'ohhkz4t0' /* Nutrients */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
@@ -839,7 +874,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Text(
-                                      'Total Volume Required',
+                                      FFLocalizations.of(context).getText(
+                                        'hgpy8obq' /* Total Volume Required */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
@@ -871,7 +908,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                                 ),
                                           ),
                                           Text(
-                                            ' Litres for ',
+                                            FFLocalizations.of(context).getText(
+                                              'v3ifawg4' /*  Litres for  */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineSmall
                                                 .override(
@@ -899,7 +938,9 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                                                 ),
                                           ),
                                           Text(
-                                            ' Acres ',
+                                            FFLocalizations.of(context).getText(
+                                              'pyqkd2ed' /*  Acres  */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineSmall
                                                 .override(
@@ -927,68 +968,36 @@ class _FertilizeSelectWidgetState extends State<FertilizeSelectWidget> {
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      FFButtonWidget(
-                        onPressed: () async {
-                          _model.answer =
-                              await actions.getFertilizerRecommendation1(
-                            _model.choiceChipsValue1!,
-                            _model.choiceChipsValue2!,
-                            _model.choiceChipsValue3!,
-                            double.parse(_model.textController.text),
-                          );
-
-                          safeSetState(() {});
-                        },
-                        text: 'Calculate',
-                        options: FFButtonOptions(
-                          width: MediaQuery.sizeOf(context).width * 0.425,
-                          height: 56.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'Inter Tight',
-                                    color: FlutterFlowTheme.of(context).info,
-                                    letterSpacing: 0.0,
-                                  ),
-                          elevation: 3.0,
-                          borderRadius: BorderRadius.circular(28.0),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 100.0,
-                        child: VerticalDivider(
-                          thickness: 2.0,
-                          color: FlutterFlowTheme.of(context).alternate,
-                        ),
-                      ),
-                      FFButtonWidget(
-                        onPressed: () async {
-                          await actions.uploadRecommendationToFirebase(
-                            _model.answer!.toList(),
-                          );
-                        },
-                        text: 'Vend It',
-                        options: FFButtonOptions(
-                          width: MediaQuery.sizeOf(context).width * 0.399,
-                          height: 56.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'Inter Tight',
-                                    color: FlutterFlowTheme.of(context).info,
-                                    letterSpacing: 0.0,
-                                  ),
-                          elevation: 3.0,
-                          borderRadius: BorderRadius.circular(28.0),
-                        ),
+                      Flexible(
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            await actions.uploadRecommendationToFirebase(
+                              _model.answer!.toList(),
+                            );
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'j2zy83dq' /* Vend It */,
+                          ),
+                          options: FFButtonOptions(
+                            width: MediaQuery.sizeOf(context).width * 0.955,
+                            height: 56.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  fontFamily: 'Inter Tight',
+                                  color: FlutterFlowTheme.of(context).info,
+                                  letterSpacing: 0.0,
+                                ),
+                            elevation: 3.0,
+                            borderRadius: BorderRadius.circular(28.0),
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['buttonOnPageLoadAnimation']!),
                       ),
                     ],
                   ),

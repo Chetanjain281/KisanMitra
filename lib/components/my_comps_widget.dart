@@ -337,6 +337,8 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MyCompsModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -371,7 +373,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Recommendation',
+              FFLocalizations.of(context).getText(
+                'ojpiw1z4' /* Reccomendation */,
+              ),
               style: FlutterFlowTheme.of(context).titleMedium.override(
                     fontFamily: 'Inter Tight',
                     letterSpacing: 0.0,
@@ -396,7 +400,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                         child: Text(
-                          'N',
+                          FFLocalizations.of(context).getText(
+                            'pncrebmv' /* N */,
+                          ),
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .headlineSmall
@@ -409,7 +415,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                       ),
                     ),
                     Text(
-                      '12',
+                      FFLocalizations.of(context).getText(
+                        'zzmkf0tw' /* 12 */,
+                      ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
                                 fontFamily: 'Inter Tight',
@@ -417,7 +425,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                               ),
                     ),
                     Text(
-                      'Nitrogen',
+                      FFLocalizations.of(context).getText(
+                        'hu9sgzsi' /* Nitrogen */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -441,7 +451,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                         child: Text(
-                          'P',
+                          FFLocalizations.of(context).getText(
+                            'j0nbpqo3' /* P */,
+                          ),
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .headlineSmall
@@ -454,7 +466,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                       ),
                     ),
                     Text(
-                      '24',
+                      FFLocalizations.of(context).getText(
+                        'lrzsermb' /* 24 */,
+                      ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
                                 fontFamily: 'Inter Tight',
@@ -462,7 +476,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                               ),
                     ),
                     Text(
-                      'Phosphorus',
+                      FFLocalizations.of(context).getText(
+                        'j419xpuc' /* Phosphorus */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -486,7 +502,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                         child: Text(
-                          'K',
+                          FFLocalizations.of(context).getText(
+                            'ldx5bo69' /* K */,
+                          ),
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .headlineSmall
@@ -499,7 +517,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                       ),
                     ),
                     Text(
-                      '36',
+                      FFLocalizations.of(context).getText(
+                        'h99gf3s1' /* 36 */,
+                      ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
                                 fontFamily: 'Inter Tight',
@@ -507,7 +527,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                               ),
                     ),
                     Text(
-                      'Potassium',
+                      FFLocalizations.of(context).getText(
+                        'y8jdx283' /* Potassium */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -534,7 +556,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                       ),
                     ),
                     Text(
-                      '48',
+                      FFLocalizations.of(context).getText(
+                        '3vjv14y2' /* 48 */,
+                      ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
                                 fontFamily: 'Inter Tight',
@@ -542,7 +566,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                               ),
                     ),
                     Text(
-                      'Micronutrients',
+                      FFLocalizations.of(context).getText(
+                        '9sksf4r0' /* Micronutrients */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -565,7 +591,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Total Volume Required',
+                      FFLocalizations.of(context).getText(
+                        '97m1ujtg' /* Total Volume Required */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
                             fontFamily: 'Inter',
                             letterSpacing: 0.0,
@@ -578,7 +606,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '250',
+                            FFLocalizations.of(context).getText(
+                              'zhcbu5xw' /* 250 */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
@@ -590,7 +620,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                                 ),
                           ),
                           Text(
-                            ' Litres for ',
+                            FFLocalizations.of(context).getText(
+                              '02nla4y2' /*  Litres for  */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
@@ -601,7 +633,9 @@ class _MyCompsWidgetState extends State<MyCompsWidget> {
                                 ),
                           ),
                           Text(
-                            '5 acres',
+                            FFLocalizations.of(context).getText(
+                              'nvfwy5n7' /* 5 acres */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(

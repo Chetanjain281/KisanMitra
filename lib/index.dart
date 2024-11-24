@@ -5,3 +5,4 @@ export '/fertilize_select/fertilize_select_widget.dart'
     show FertilizeSelectWidget;
 export '/pesticide_page/pesticide_page_widget.dart' show PesticidePageWidget;
 export '/weedicide_page/weedicide_page_widget.dart' show WeedicidePageWidget;
+export '/news_page/news_page_widget.dart' show NewsPageWidget;
