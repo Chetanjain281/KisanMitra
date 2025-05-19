@@ -1,64 +1,106 @@
+// Core Flutter imports
 import 'package:flutter/material.dart';
 
+// Localization and URL handling
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+
+// Firebase authentication imports
 import 'auth/firebase_auth/firebase_user_provider.dart';
 import 'auth/firebase_auth/auth_util.dart';
 
+// Backend configuration and theme management
 import 'backend/firebase/firebase_config.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+
+// Utility imports
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'index.dart';
 
+/**
+ * Main entry point of the application
+ * Initializes Firebase, theme, and localizations before running the app
+ */
 void main() async {
+  // Ensure Flutter widgets are initialized
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Configure URL strategy for web
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
 
+  // Initialize Firebase services
   await initFirebase();
 
+  // Initialize theme system
   await FlutterFlowTheme.initialize();
 
+  // Initialize localization system
   await FFLocalizations.initialize();
 
+  // Start the app
   runApp(const MyApp());
 }
 
+/**
+ * Main application widget that manages the app's state
+ * Provides access to global app state through the of() method
+ */
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   State<MyApp> createState() => _MyAppState();
 
+  /// Returns the current app state from any widget in the tree
   static _MyAppState of(BuildContext context) =>
       context.findAncestorStateOfType<_MyAppState>()!;
 }
 
+/**
+ * State management for the main app widget
+ * Handles authentication, routing, and theme management
+ */
 class _MyAppState extends State<MyApp> {
+  /// Current language setting for the app
   Locale? _locale = FFLocalizations.getStoredLocale();
 
+  /// Current theme mode (light/dark)
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
+  /// Notifier for app state changes
   late AppStateNotifier _appStateNotifier;
+  
+  /// Router for app navigation
   late GoRouter _router;
 
+  /// Stream for user authentication state
   late Stream<BaseAuthUser> userStream;
 
+  /// Subscription to authenticated user stream
   final authUserSub = authenticatedUserStream.listen((_) {});
 
   @override
   void initState() {
     super.initState();
 
+    // Initialize app state notifier
     _appStateNotifier = AppStateNotifier.instance;
+    
+    // Create router with app state
     _router = createRouter(_appStateNotifier);
+    
+    // Listen to user authentication changes
     userStream = kisanMitraFirebaseUserStream()
       ..listen((user) {
         _appStateNotifier.update(user);
       });
+    
+    // Listen to JWT token changes
     jwtTokenStream.listen((_) {});
+    
+    // Hide splash screen after initialization
     Future.delayed(
       Duration(milliseconds: isWeb ? 0 : 1000),
       () => _appStateNotifier.stopShowingSplashImage(),
